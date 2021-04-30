@@ -12,7 +12,7 @@
   <title>Hello, world!</title>
 </head>
 
-<body>
+<body onload="loadPage()">
   <header>
     <div class="collapse bg-dark" id="navbarHeader">
         <div class="row">
@@ -94,6 +94,14 @@
       </div>
     </section>
     </div>
+    <div class="col-md-6 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Categorias Cadastradas</span>
+        <span class="badge badge-secondar y badge-pill">...</span>
+      </h4>
+      <ul class="list-group mb-3"  id="customerList">
+      </ul>
+    </div>
 
   </main>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -105,11 +113,18 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
   <script src="js/bootstrap.js"></script>
-  <script src="/docs/5.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-    crossorigin="anonymous"></script>
+
+
+    <script src="DAO/CategoriesController.js"></script>
+    <script src="Components/CategoryComponent.js"></script>
+    <script language="JavaScript">  
+        function loadPage(){
+            var responseJsonCategories = GetAllCategories();
+            mountCategoriesList(responseJsonCategories);
+        }
+    </script>
+
 </body>
 
 </html>
